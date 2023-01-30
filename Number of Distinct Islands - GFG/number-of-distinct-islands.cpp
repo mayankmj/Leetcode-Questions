@@ -12,8 +12,8 @@ class Solution {
     int dfs(int row , int col , vector<vector<int>>&grid, vector<vector<int>>&visited,
     vector<pair<int,int>>&vec,int nrow , int ncol)
     {
-        visited[row][col]=1;
-        vec.push_back({row-nrow,col-ncol});
+        visited[nrow][ncol]=1;
+        vec.push_back({nrow-row,ncol-col});
         int n = grid.size();
         int m = grid[0].size();
         
@@ -21,11 +21,11 @@ class Solution {
         int traverse_col[] = {0,1,0,-1};
         for(int i=0;i<4;i++)
         {
-            int next_row = row+traverse_row[i];
-            int next_col = col+traverse_col[i];
+            int next_row = nrow+traverse_row[i];
+            int next_col = ncol+traverse_col[i];
             if(next_row>=0 && next_row<n && next_col>=0 && next_col<m 
             && !visited[next_row][next_col] && grid[next_row][next_col])
-            dfs(next_row,next_col,grid,visited,vec,nrow,ncol);
+            dfs(row,col,grid,visited,vec,next_row,next_col);
         }
     }
     int countDistinctIslands(vector<vector<int>>& grid) {
