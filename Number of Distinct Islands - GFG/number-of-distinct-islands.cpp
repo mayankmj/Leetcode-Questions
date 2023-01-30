@@ -12,6 +12,8 @@ class Solution {
     int dfs(int row , int col , vector<vector<int>>&grid, vector<vector<int>>&visited,
     vector<pair<int,int>>&vec,int nrow , int ncol)
     {
+        // row,col -> base row and col
+        // nrow , ncol -> new rows and cols
         visited[nrow][ncol]=1;
         vec.push_back({nrow-row,ncol-col});
         int n = grid.size();
