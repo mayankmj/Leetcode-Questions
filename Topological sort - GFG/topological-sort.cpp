@@ -12,7 +12,8 @@ class Solution
 	    for(auto &x:adj[node]) {
 	        if(!vis[x]) dfs(s,vis,x,adj);
 	    }
-	      s.push(node);
+	     s.push(node);
+	      
 	}
 	//Function to return list containing vertices in Topological order. 
 	vector<int> topoSort(int V, vector<int> adj[]) 
